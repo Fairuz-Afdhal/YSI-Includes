@@ -256,7 +256,7 @@ stock bool:YSI_Streamer_RemoveFloatData(type, STREAMER_ALL_TAGS:id, data)
 	#define StopDynamicObject( Inline_StopDynamicObject(
 
 	// Hook stoping and destroying objects to remove the callbacks.
-	stock Inline_DestroyDynamicObject(CB_STREAMER_TAG_OBJECT:objectid)
+/*	stock Inline_DestroyDynamicObject(CB_STREAMER_TAG_OBJECT:objectid)
 	{
 		if (Streamer_HasIntData(STREAMER_TYPE_OBJECT, objectid, E_YSI_DYNAMIC_OBJECT_MOVED))
 		{
@@ -272,7 +272,7 @@ stock bool:YSI_Streamer_RemoveFloatData(type, STREAMER_ALL_TAGS:id, data)
 	#else
 		#define _ALS_DestroyDynamicObject
 	#endif
-	#define DestroyDynamicObject( Inline_DestroyDynamicObject(
+	#define DestroyDynamicObject( Inline_DestroyDynamicObject(*/
 
 	stock MoveDynamicObjectCallback(CB_STREAMER_TAG_OBJECT:objectid, Func:onMoved<i>, Float:x, Float:y, Float:z, Float:speed, Float:rx = -1000.0, Float:ry = -1000.0, Float:rz = -1000.0)
 	{
