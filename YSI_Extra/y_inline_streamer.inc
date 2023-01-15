@@ -98,44 +98,6 @@ Optional plugins:
 	#define CB_STREAMER_TAG_OBJECT _
 #endif
 
-#if !defined _ALS_Streamer_HasIntData
-	// Push a fake extra parameter.
-	native bool:BAD_Streamer_HasIntData(type, STREAMER_ALL_TAGS:id, data, fakeExtraParameter = 0) = Streamer_HasIntData;
-
-	stock bool:YSI_Streamer_HasIntData(type, STREAMER_ALL_TAGS:id, data)
-	{
-		// This isn't a compile-time constant, so we can't use `#if`.
-		if (Streamer_IncludeFileVersion > 0x295)
-		{
-			return bool:Streamer_HasIntData(type, id, data);
-		}
-		// https://github.com/samp-incognito/samp-streamer-plugin/pull/380
-		return BAD_Streamer_HasIntData(type, id, data);
-	}
-
-	#define _ALS_Streamer_HasIntData
-	#define Streamer_HasIntData( YSI_Streamer_HasIntData(
-#endif
-
-#if !defined _ALS_Streamer_RemoveIntData
-	// Push a fake extra parameter.
-	native bool:BAD_Streamer_RemoveIntData(type, STREAMER_ALL_TAGS:id, data, fakeExtraParameter = 0) = Streamer_RemoveIntData;
-
-	stock bool:YSI_Streamer_RemoveIntData(type, STREAMER_ALL_TAGS:id, data)
-	{
-		// This isn't a compile-time constant, so we can't use `#if`.
-		if (Streamer_IncludeFileVersion > 0x295)
-		{
-			return bool:Streamer_RemoveIntData(type, id, data);
-		}
-		// https://github.com/samp-incognito/samp-streamer-plugin/pull/380
-		return BAD_Streamer_RemoveIntData(type, id, data);
-	}
-
-	#define _ALS_Streamer_RemoveIntData
-	#define Streamer_RemoveIntData( YSI_Streamer_RemoveIntData(
-#endif
-
 stock bool:YSI_Streamer_GetFloatData(type, STREAMER_ALL_TAGS:id, data, &Float:result)
 {
 	if (data & 0x40000000)
